@@ -54,6 +54,14 @@ namespace SPenClient
             public bool isNew =true;
             private FormMain form;
 
+            Point mZeroCursor;
+            int zeroX, zeroY;
+
+            public void ZeroMouseCursor()
+            {
+                mZeroCursor = new Point(zeroX, zeroY);
+            }
+
             public void SetData(object raw)
             {
                 LoadData(raw);
@@ -77,29 +85,30 @@ namespace SPenClient
                     {
                         if (type.Equals("hover") && _type.Equals("pen"))
                         {
-                            mouse_event((int)(MouseEventFlags.LEFTUP| MouseEventFlags.ABSOLUTE), inx, iny, 0, 0);
+                            mouse_event((int)(MouseEventFlags.LEFTUP| MouseEventFlags.ABSOLUTE), 0, 0, 0, 0);
                         }
 
                         if (type.Equals("pen") && _type.Equals("hover"))
                         {
-                            mouse_event((int)(MouseEventFlags.LEFTDOWN| MouseEventFlags.ABSOLUTE), inx, iny, 0, 0);
+                            mouse_event((int)(MouseEventFlags.LEFTDOWN| MouseEventFlags.ABSOLUTE), 0, 0, 0, 0);
                         }
                     }
 
 
                     if (pressure <= 0 && Math.Min(x, y) <= 0 & type.Equals("hover") || type.Equals("finger") && up.Equals("up"))
                     {
-                        mouse_event((int)(MouseEventFlags.LEFTUP| MouseEventFlags.ABSOLUTE), inx, iny, 0, 0);
+                        mouse_event((int)(MouseEventFlags.LEFTUP| MouseEventFlags.ABSOLUTE), 0, 0, 0, 0);
                         isNew = true;
                         RestoreBackup();
                         return;
                     }
 
                     //Cursor.Position = new System.Drawing.Point(this.GetX, this.GetY);
-                    Cursor.Position = new System.Drawing.Point((int)x, (int)y);
+                    Cursor.Position = new System.Drawing.Point((int)(x+ mZeroCursor.X), (int)(y+ mZeroCursor.Y));
 
                     if (form.WindowState == FormWindowState.Normal)
                     {
+                        zeroX = (int)x; zeroY=(int)y;
                         form.labelx.Text = x.ToString();
                         form.labely.Text = y.ToString();
                         form.labelp.Text = pressure.ToString();
@@ -232,6 +241,11 @@ namespace SPenClient
             bw.CancelAsync();
             bw.Dispose();
             init(int.Parse(textBox1.Text));
+        }
+
+        private void btnZero_Click(object sender, EventArgs e)
+        {
+            pen.ZeroMouseCursor();
         }
     }
 }

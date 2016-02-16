@@ -47,6 +47,7 @@
             this.labely = new System.Windows.Forms.Label();
             this.labelx = new System.Windows.Forms.Label();
             this.btnSaveClick = new System.Windows.Forms.Button();
+            this.btnZero = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -263,7 +264,7 @@
             // btnSaveClick
             // 
             this.btnSaveClick.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnSaveClick.Location = new System.Drawing.Point(96, 193);
+            this.btnSaveClick.Location = new System.Drawing.Point(46, 193);
             this.btnSaveClick.Name = "btnSaveClick";
             this.btnSaveClick.Size = new System.Drawing.Size(75, 23);
             this.btnSaveClick.TabIndex = 8;
@@ -271,11 +272,23 @@
             this.btnSaveClick.UseVisualStyleBackColor = true;
             this.btnSaveClick.Click += new System.EventHandler(this.btnSaveClick_Click);
             // 
+            // btnZero
+            // 
+            this.btnZero.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnZero.Location = new System.Drawing.Point(140, 193);
+            this.btnZero.Name = "btnZero";
+            this.btnZero.Size = new System.Drawing.Size(75, 23);
+            this.btnZero.TabIndex = 9;
+            this.btnZero.Text = "Zero";
+            this.btnZero.UseVisualStyleBackColor = true;
+            this.btnZero.Click += new System.EventHandler(this.btnZero_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(269, 223);
+            this.Controls.Add(this.btnZero);
             this.Controls.Add(this.btnSaveClick);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -312,7 +325,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnSaveClick;
-
+        private System.Windows.Forms.Button btnZero;
     }
 }
 
