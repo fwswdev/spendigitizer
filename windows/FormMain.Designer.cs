@@ -46,7 +46,7 @@
             this.labelp = new System.Windows.Forms.Label();
             this.labely = new System.Windows.Forms.Label();
             this.labelx = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSaveClick = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -260,23 +260,23 @@
             this.labelx.Text = "...";
             this.labelx.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // button1
+            // btnSaveClick
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button1.Location = new System.Drawing.Point(96, 193);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSaveClick.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSaveClick.Location = new System.Drawing.Point(96, 193);
+            this.btnSaveClick.Name = "btnSaveClick";
+            this.btnSaveClick.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveClick.TabIndex = 8;
+            this.btnSaveClick.Text = "Save";
+            this.btnSaveClick.UseVisualStyleBackColor = true;
+            this.btnSaveClick.Click += new System.EventHandler(this.btnSaveClick_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(269, 223);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSaveClick);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -311,7 +311,7 @@
         private System.Windows.Forms.Label labelx;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSaveClick;
 
     }
 }

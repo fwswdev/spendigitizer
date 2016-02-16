@@ -13,6 +13,19 @@ namespace SPenClient
 {
     public partial class FormMain : Form
     {
+
+
+
+//-######-------------------######----------------------
+//-#-----#-######-#----#----#-----#---##---#####---##---
+//-#-----#-#------##---#----#-----#--#--#----#----#--#--
+//-######--#####--#-#--#----#-----#-#----#---#---#----#-
+//-#-------#------#--#-#----#-----#-######---#---######-
+//-#-------#------#---##----#-----#-#----#---#---#----#-
+//-#-------######-#----#----######--#----#---#---#----#-
+//------------------------------------------------------
+
+
         public class PenData
         {
             public PenData(FormMain form)
@@ -149,7 +162,29 @@ namespace SPenClient
                     return Cursor.Position.Y + (int)(y - _y);
                 } 
             }
+
+
+            // UnManaged Code
+
+            [DllImport("user32.dll")]
+            static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
+
+            [Flags]
+            public enum MouseEventFlags
+            {
+                LEFTDOWN = 0x00000002,
+                LEFTUP = 0x00000004,
+                MIDDLEDOWN = 0x00000020,
+                MIDDLEUP = 0x00000040,
+                MOVE = 0x00000001,
+                ABSOLUTE = 0x00008000,
+                RIGHTDOWN = 0x00000008,
+                RIGHTUP = 0x00000010
+            }
         }
+
+
+
 
         private PenData pen;
         BackgroundWorker bw;
@@ -190,23 +225,9 @@ namespace SPenClient
             } while (!worker.CancellationPending);
         }
 
-        [DllImport("user32.dll")]
-        static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
 
-        [Flags]
-        public enum MouseEventFlags
-        {
-            LEFTDOWN = 0x00000002,
-            LEFTUP = 0x00000004,
-            MIDDLEDOWN = 0x00000020,
-            MIDDLEUP = 0x00000040,
-            MOVE = 0x00000001,
-            ABSOLUTE = 0x00008000,
-            RIGHTDOWN = 0x00000008,
-            RIGHTUP = 0x00000010
-        }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSaveClick_Click(object sender, EventArgs e)
         {
             bw.CancelAsync();
             bw.Dispose();
